@@ -1,4 +1,5 @@
 /** @format */
+
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, reset, incrementByAmount } from "./counterSlice";
 import { useState } from "react";
@@ -17,9 +18,9 @@ const Counter = () => {
   };
 
   return (
-    <section>
-      <p className=' font-serif  text-6xl'>{count}</p>
-      <div>
+    <section className='text-center border rounded-2xl shadow-2xl bg-base-300 m-12 p-12'>
+      <p className='text-6xl font-serif'>{count}</p>
+      <div className='space-x-4 my-2 pt-2'>
         <button
           className='btn btn-outline btn-success'
           onClick={() => dispatch(increment())}>
@@ -35,10 +36,10 @@ const Counter = () => {
         type='text'
         value={incrementAmount}
         onChange={(e) => setIncrementAmount(e.target.value)}
-        className='input input-ghost w-full max-w-xs'
+        className='input border-gray-600 text-2xl w-full max-w-xs my-4'
       />
 
-      <div>
+      <div className='space-x-4'>
         <button
           className='btn btn-outline btn-success'
           onClick={() => dispatch(incrementByAmount(addValue))}>
