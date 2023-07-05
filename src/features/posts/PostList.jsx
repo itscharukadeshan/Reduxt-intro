@@ -3,6 +3,7 @@
 import { useSelector } from "react-redux";
 import { selectAllPost } from "./postsSlice";
 import PostAuthor from "./PostAuthor";
+import TimeAgo from "./TimeAgo";
 
 import React from "react";
 
@@ -18,6 +19,7 @@ function PostList() {
       </p>
       <p className=''>
         <PostAuthor userId={post.userId} />
+        <TimeAgo timestamp={post.date} />
       </p>
     </article>
   ));
