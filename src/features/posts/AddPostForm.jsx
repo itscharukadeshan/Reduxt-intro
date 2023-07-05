@@ -33,7 +33,7 @@ function AddPostForm() {
   ));
 
   return (
-    <>
+    <div className='block max-w-md rounded-2xl bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-900'>
       <h2 className=' card text-2xl font-mono font-bold my-4'>Add new Post</h2>
       <form>
         <label
@@ -87,7 +87,7 @@ function AddPostForm() {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 }
 
