@@ -8,8 +8,12 @@ import TimeAgo from "./TimeAgo";
 import React from "react";
 
 function PostList() {
-  const post = useSelector(selectAllPost);
-  const renderedPost = post.map((post) => (
+  const posts = useSelector(selectAllPost);
+  const orderedPosts = posts
+    .slice()
+    .sort((a, b) => b.date.localeCompare(a.date));
+
+  const renderedPost = orderedPosts.map((post) => (
     <article
       className='card w-96 p-5 my-6 bg-gray-200 shadow-xl border-gray-600 border-2'
       key={post.id}>
