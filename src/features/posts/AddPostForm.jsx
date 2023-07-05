@@ -1,18 +1,21 @@
 /** @format */
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { nanoid } from "@reduxjs/toolkit";
-
+import { useDispatch, useSelector } from "react-redux";
+import { selectAllUsers } from "../users/userSlice";
 import { postAdded } from "./postsSlice";
 
 function AddPostForm() {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [userId, setUseId] = useState("");
+
+  const user = useSelector(selectAllUsers);
 
   const onTitleChanged = (e) => setTitle(e.target.value);
   const onContentChanged = (e) => setContent(e.target.value);
+  const onAuthorChanged = (e) => setUseId(e.target.value);
 
   const onSavePostClicked = () => {
     if (title && content) {
@@ -21,6 +24,13 @@ function AddPostForm() {
       setContent("");
     }
   };
+  const canSave = Boolean(title) && Boolean(content) && Boolean(userId);
+
+  const userOptions = user.map((user) => (
+    <option key={user.id} value={user.id}>
+      {user.name}
+    </option>
+  ));
 
   return (
     <>
@@ -41,12 +51,20 @@ function AddPostForm() {
         />
         <label
           htmlFor='postAuthor'
-          className='form-control my-2 w-full max-w-xs'>
+          className='form-control my-2 w-full max-w-xs'
+          value={userId}
+          onChange={onAuthorChanged}>
           Author
         </label>
-        <select id='postAuthor' className='select select-bordered'>
+        <select
+          id='postAuthor'
+          className='select select-bordered'
+          value={userId}
+          onChange={onAuthorChanged}>
           <option value=''></option>
+          {userOptions}
         </select>
+
         <label
           htmlFor='postContent'
           className='form-control my-2 w-full max-w-xs'>
@@ -63,6 +81,7 @@ function AddPostForm() {
           <button
             type='button'
             className='btn btn-outline btn-success'
+            disabled={!canSave}
             onClick={onSavePostClicked}>
             Save Post
           </button>
