@@ -1,7 +1,11 @@
 /** @format */
-
+import PostList from "./features/posts/PostList";
 function App() {
-  return <div></div>;
+  return (
+    <main className='App'>
+      <PostList />
+    </main>
+  );
 }
 
 export default App;
