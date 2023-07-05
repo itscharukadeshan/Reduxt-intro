@@ -24,30 +24,49 @@ function AddPostForm() {
 
   return (
     <>
-      <h2>Add new Post</h2>
+      <h2 className=' card text-2xl font-mono font-bold my-4'>Add new Post</h2>
       <form>
-        <label htmlFor='postTitle'>Post Title:</label>
+        <label
+          htmlFor='postTitle'
+          className='form-control my-2 w-full max-w-xs'>
+          Post Title
+        </label>
         <input
+          className='input input-bordered input-accent w-full max-w-xs'
           type='text'
           id='postTitle'
           name='postTitle'
           value={title}
           onChange={onTitleChanged}
         />
-        <label htmlFor='postAuthor'>Author:</label>
-        <select id='postAuthor'>
+        <label
+          htmlFor='postAuthor'
+          className='form-control my-2 w-full max-w-xs'>
+          Author
+        </label>
+        <select id='postAuthor' className='select select-bordered'>
           <option value=''></option>
         </select>
-        <label htmlFor='postContent'>Content:</label>
-        <textarea
-          id='postContent'
-          name='postContent'
-          value={content}
-          onChange={onContentChanged}
-        />
-        <button type='button' onClick={onSavePostClicked}>
-          Save Post
-        </button>
+        <label
+          htmlFor='postContent'
+          className='form-control my-2 w-full max-w-xs'>
+          Content
+        </label>
+        <div className=' flex flex-col gap-3 w-96'>
+          <textarea
+            className='textarea textarea-accent'
+            id='postContent'
+            name='postContent'
+            value={content}
+            onChange={onContentChanged}
+          />
+          <button
+            type='button'
+            className='btn btn-outline btn-success'
+            onClick={onSavePostClicked}>
+            Save Post
+          </button>
+        </div>
       </form>
     </>
   );

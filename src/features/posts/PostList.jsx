@@ -8,14 +8,18 @@ import React from "react";
 function PostList() {
   const post = useSelector(selectAllPost);
   const renderedPost = post.map((post) => (
-    <article key={post.id}>
-      <h3>{post.title}</h3>
-      <p>{post.content.substring(0, 100)}</p>
+    <article
+      className='card w-96 p-5 my-6 bg-gray-200 shadow-xl border-gray-600 border-2'
+      key={post.id}>
+      <h3 className='card-title text-black'>{post.title}</h3>
+      <p className='card-body text-gray-900'>
+        {post.content.substring(0, 100)}
+      </p>
     </article>
   ));
   return (
     <>
-      <h2>Posts</h2>
+      <h2 className=' text-2xl font-mono font-bold my-4'>Posts</h2>
       {renderedPost}
     </>
   );
