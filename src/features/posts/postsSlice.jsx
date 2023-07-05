@@ -46,7 +46,7 @@ const postsSlice = createSlice({
             id: nanoid(),
             title,
             content,
-            date: new Date().toDateString(),
+            date: new Date().toISOString(),
             userId,
             reactions: {
               thumbsUp: 0,
@@ -69,6 +69,8 @@ const postsSlice = createSlice({
   },
 });
 
-export const selectAllPost = (state) => state.posts;
+export const selectAllPosts = (state) => state.posts;
+
 export const { postAdded, reactionAdded } = postsSlice.actions;
+
 export default postsSlice.reducer;
