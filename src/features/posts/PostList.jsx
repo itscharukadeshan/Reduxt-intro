@@ -2,6 +2,7 @@
 
 import { useSelector } from "react-redux";
 import { selectAllPost } from "./postsSlice";
+import PostAuthor from "./PostAuthor";
 
 import React from "react";
 
@@ -14,6 +15,9 @@ function PostList() {
       <h3 className='card-title text-black'>{post.title}</h3>
       <p className='card-body text-gray-900'>
         {post.content.substring(0, 100)}
+      </p>
+      <p className=''>
+        <PostAuthor userId={post.userId} />
       </p>
     </article>
   ));
