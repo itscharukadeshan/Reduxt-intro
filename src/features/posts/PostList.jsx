@@ -12,7 +12,7 @@ function PostList() {
   let content;
   if (postStatus === "loading") {
     content = (
-      <div className='flex flex-col gap-4 my-5 justify-center items-center h-screen'>
+      <div className='flex flex-col gap-4 my-5 justify-center items-center'>
         <span className='loading loading-bars loading-md'></span>
       </div>
     );
