@@ -1,18 +1,25 @@
 /** @format */
 
-import PostList from "./features/posts/PostList";
+import PostsList from "./features/posts/PostList";
 import AddPostForm from "./features/posts/AddPostForm";
-import NavBar from "./features/posts/NavBar";
+import SinglePostPage from "./features/posts/SinglePostPage";
+import Layout from "./components/Layout";
+import { Routes, Route } from "react-router-dom";
+import EditPostForm from "./features/posts/EditPostForm";
 
 function App() {
   return (
-    <main>
-      <NavBar className='w-full' />
-      <div className='flex flex-col gap-4 my-5 justify-center items-center'>
-        <AddPostForm />
-        <PostList />
-      </div>
-    </main>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<PostsList />} />
+
+        <Route path='post'>
+          <Route index element={<AddPostForm />} />
+          <Route path=':postId' element={<SinglePostPage />} />
+          <Route path='edit/:postId' element={<EditPostForm />} />
+        </Route>
+      </Route>
+    </Routes>
   );
 }
 
