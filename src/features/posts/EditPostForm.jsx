@@ -85,40 +85,66 @@ const EditPostForm = () => {
   };
 
   return (
-    <section>
-      <h2>Edit Post</h2>
-      <form>
-        <label htmlFor='postTitle'>Post Title:</label>
-        <input
-          type='text'
-          id='postTitle'
-          name='postTitle'
-          value={title}
-          onChange={onTitleChanged}
-        />
-        <label htmlFor='postAuthor'>Author:</label>
-        <select id='postAuthor' value={userId} onChange={onAuthorChanged}>
-          <option value=''></option>
-          {usersOptions}
-        </select>
-        <label htmlFor='postContent'>Content:</label>
-        <textarea
-          id='postContent'
-          name='postContent'
-          value={content}
-          onChange={onContentChanged}
-        />
-        <button type='button' onClick={onSavePostClicked} disabled={!canSave}>
-          Save Post
-        </button>
-        <button
-          className='deleteButton'
-          type='button'
-          onClick={onDeletePostClicked}>
-          Delete Post
-        </button>
-      </form>
-    </section>
+    <selection className='flex justify-center mt-6'>
+      <div className='p-14 border-gray-600 border-2 rounded-lg'>
+        <h2 className='text-2xl pb-8'>Edit Post</h2>
+        <form className='flex flex-col gap-5'>
+          <label
+            htmlFor='postTitle'
+            className='form-control my-2 w-full max-w-xs'>
+            Post Title
+          </label>
+          <input
+            type='text'
+            className='input input-bordered input-accent w-full max-w-xs'
+            id='postTitle'
+            name='postTitle'
+            value={title}
+            onChange={onTitleChanged}
+          />
+          <label
+            htmlFor='postAuthor'
+            className='form-control my-2 w-full max-w-xs'>
+            Author
+          </label>
+          <select
+            id='postAuthor'
+            className='select select-bordered'
+            value={userId}
+            onChange={onAuthorChanged}>
+            <option value=''></option>
+            {usersOptions}
+          </select>
+          <label
+            htmlFor='postContent'
+            className='form-control my-2 w-full max-w-xs'>
+            Content
+          </label>
+          <textarea
+            id='postContent'
+            className='textarea textarea-accent'
+            name='postContent'
+            value={content}
+            onChange={onContentChanged}
+          />
+          <div className='flex flex-row gap-6 mt-4'>
+            <button
+              type='button'
+              className='btn btn-info btn-outline'
+              onClick={onSavePostClicked}
+              disabled={!canSave}>
+              Save Post
+            </button>
+            <button
+              className='btn btn-warning btn-outline'
+              type='button'
+              onClick={onDeletePostClicked}>
+              Delete Post
+            </button>
+          </div>
+        </form>
+      </div>
+    </selection>
   );
 };
 
