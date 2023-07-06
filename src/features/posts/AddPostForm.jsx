@@ -29,7 +29,7 @@ function AddPostForm() {
 
         setTitle("");
         setContent("");
-        setUserId("");
+        setUseId("");
       } catch (err) {
         console.error("Failed to save the post", err);
       } finally {
