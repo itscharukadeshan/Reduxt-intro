@@ -26,7 +26,11 @@ function PostList() {
 
   let content;
   if (postStatus === "loading") {
-    content = <p>"Loading..."</p>;
+    content = (
+      <div className='flex flex-col gap-4 my-5 justify-center items-center'>
+        <span className='loading loading-bars loading-md'></span>
+      </div>
+    );
   } else if (postStatus === "succeeded") {
     const orderedPosts = posts
       .slice()
